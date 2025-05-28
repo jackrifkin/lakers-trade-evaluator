@@ -7,7 +7,7 @@
  * @param protected - Whether or not the pick is protected.
  * @param topProtected - The maximum pick number in the draft where this pick's protection is utilized (ex: 5 means this pick is protected for the top 5 picks)
  */
-export type DraftPick = {
+type DraftPick = {
   draftYear: number;
   round: 1 | 2;
   protected: boolean;
@@ -30,4 +30,4 @@ export type TradeElement = BaseTradeElement & DraftPick;
 //   | (BaseTradeElement & Player)
 //   | (BaseTradeElement & Cash);
 
-export type Trade = TradeElement[];
+export type Trade = { name: string; elements: TradeElement[] };

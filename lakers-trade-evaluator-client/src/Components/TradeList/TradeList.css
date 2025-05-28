@@ -1,0 +1,10 @@
+.trade-list-container {
+  max-width: 50vw;
+}
+
+ul {
+  padding: 0;
+}
+li {
+  list-style: none;
+}

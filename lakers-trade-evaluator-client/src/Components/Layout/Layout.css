@@ -1,0 +1,33 @@
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5vh 10vw;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+}
+
+.new-trade-button {
+  background-color: #afa;
+  border-radius: 24px;
+  height: 5%;
+  width: fit-content;
+  padding: 8px 16px;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+.new-trade-button:active {
+  transform: scale(0.9);
+}

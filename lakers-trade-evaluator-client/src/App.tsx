@@ -1,23 +1,17 @@
-import { useState } from "react";
 import "./App.css";
-import type { Trade } from "./types";
-import { TradeContext } from "./Contexts/TradeContext";
 import { Route, Routes } from "react-router-dom";
-import TradeDetails from "./Components/TradeDetails/TradeDetails";
 import TradeList from "./Components/TradeList/TradeList";
-import TradeEditor from "./Components/TradeDetails/TradeEditor";
+import TradeView from "./Components/TradeView/TradeView";
+import Layout from "./Components/Layout/Layout";
 
 function App() {
-  const [currentTrade] = useState<Trade | undefined>(undefined);
-
   return (
-    <TradeContext value={currentTrade}>
-      <Routes>
+    <Routes>
+      <Route path="/" element={<Layout />}>
         <Route path="/" element={<TradeList />} />
-        <Route path="/trade" element={<TradeDetails />} />
-        <Route path="/trade/edit" element={<TradeEditor />} />
-      </Routes>
-    </TradeContext>
+        <Route path="/trade/:tid" element={<TradeView />} />
+      </Route>
+    </Routes>
   );
 }
 
