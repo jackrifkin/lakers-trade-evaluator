@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { DraftPick, Trade, TradeElement } from "../types";
-import { MOCK_SAVED_TRADE_DATA } from "../mock_data";
 import { IoClose } from "react-icons/io5";
 import "./../Components/TradeEditor/TradeEditor.css";
+import { getTradeById } from "../Services/tradeService";
 
 const emptyPick: DraftPick = {
   draftYear: new Date().getFullYear(),
@@ -23,12 +23,19 @@ const useTradeEditor = (tradeId?: string) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // TODO: fetch trade by id
-    const initialTrade = tradeId ? MOCK_SAVED_TRADE_DATA[0] : undefined;
+    const fetchTradeById = async () => {
+      if (!tradeId) {
+        return;
+      }
+      try {
+        const initialTrade = await getTradeById(tradeId);
+        setTrade(initialTrade);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-    if (initialTrade) {
-      setTrade(initialTrade);
-    }
+    fetchTradeById();
   }, [tradeId]);
 
   const handleAddTeam = () => {
