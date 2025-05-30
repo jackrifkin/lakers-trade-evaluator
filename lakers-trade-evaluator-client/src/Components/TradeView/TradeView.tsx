@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
-import TradeEditor from "./TradeEditor";
-import TradeDetails from "./TradeDetails";
 import type { Trade } from "../../types";
 import { useParams } from "react-router-dom";
 import { MOCK_SAVED_TRADE_DATA } from "../../mock_data";
 
 const TradeView = () => {
-  const [isEditing, setIsEditing] = useState<boolean>(true);
   const [currentTrade, setCurrentTrade] = useState<Trade | undefined>(
     undefined
   );
@@ -26,11 +23,7 @@ const TradeView = () => {
     fetchTradeById();
   }, []);
 
-  return isEditing ? (
-    <TradeEditor trade={currentTrade} />
-  ) : (
-    <TradeDetails trade={currentTrade} />
-  );
+  return <></>;
 };
 
 export default TradeView;

@@ -30,4 +30,9 @@ export type TradeElement = BaseTradeElement & DraftPick;
 //   | (BaseTradeElement & Player)
 //   | (BaseTradeElement & Cash);
 
-export type Trade = { name: string; elements: TradeElement[]; teams: string[] };
+export type Trade = {
+  id?: string;
+  name: string;
+  elements: TradeElement[];
+  teams: string[];
+};

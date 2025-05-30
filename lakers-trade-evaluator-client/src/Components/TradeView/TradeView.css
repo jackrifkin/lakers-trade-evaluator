@@ -1,0 +1,180 @@
+.edit-form-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 32px 16px;
+  overflow-y: scroll;
+  max-height: 82.5vh;
+}
+
+.back-arrow,
+.delete-alt-pick-button {
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.back-arrow:hover {
+  transform: scale(1.05);
+  color: var(--purple);
+}
+
+input,
+select {
+  margin: 8px;
+  border-radius: 0.2vw;
+  border: none;
+  padding: 4px;
+}
+
+input {
+  max-width: 75px;
+}
+
+.edit-form-container > h3 {
+  margin: 3vh 0 1vh 0;
+}
+
+.team-list {
+  margin: 0;
+  padding-left: 2vh;
+}
+
+.team-list > li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.remove-team-button {
+  cursor: pointer;
+  align-self: center;
+}
+
+.add-team-button,
+.confirm-team-button,
+.add-element-button,
+.add-alt-pick-button,
+.discard-button,
+.save-button {
+  background-color: var(--purple);
+  border: none;
+  width: 10%;
+  margin-left: 2vh;
+  min-width: 16px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.25vw;
+  cursor: pointer;
+}
+
+.add-team-button:hover,
+.confirm-team-button:hover,
+.add-alt-pick-button:hover,
+.submit-button-container > button:hover {
+  transform: scale(1.05);
+}
+
+.add-team-button:active,
+.confirm-team-button:active,
+.add-element-button:active {
+  transform: scale(0.95);
+}
+
+.new-team-input {
+  margin: 0;
+  font-size: large;
+}
+
+.confirm-team-button {
+  color: white;
+  margin-left: 0;
+  width: auto;
+  padding: 8px 8px;
+}
+
+.add-element-button {
+  width: 100%;
+  margin: 0;
+  margin-top: 2vh;
+  padding: 8px;
+  color: white;
+  font-size: larger;
+}
+
+.trade-name-input {
+  margin: 0;
+  max-width: none;
+  width: 75%;
+  padding: 16px;
+  font-size: large;
+  border-radius: 0.5vw;
+  border: none;
+}
+
+.pick-editor {
+  padding-left: 16px;
+  border-radius: 0.5vw;
+}
+
+.alt-pick-container {
+  display: flex;
+  padding-bottom: 8px;
+}
+
+.alt-pick-label {
+  margin: 0;
+  margin-top: 8px;
+  font-weight: 400;
+}
+
+.add-alt-pick-button {
+  color: white;
+  width: auto;
+  padding: 8px 16px;
+}
+
+.delete-alt-pick-button {
+  margin: 12px 8px 0 8px;
+  font-size: medium;
+}
+
+.trade-component-container {
+  padding: 16px;
+  background-color: var(--dark-grey);
+  margin: 16px 0;
+  border-radius: 0.5vw;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.delete-component-button {
+  font-size: larger;
+  cursor: pointer;
+}
+
+.trade-component-container > div {
+  flex: 1;
+}
+
+.submit-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin: 2vh 0 10vh 0;
+  gap: 8px;
+}
+
+.discard-button,
+.save-button {
+  padding: 8px 16px;
+  width: auto;
+  color: white;
+  font-size: large;
+}
+
+.discard-button {
+  background-color: var(--dark-grey);
+}

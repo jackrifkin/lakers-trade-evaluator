@@ -1,9 +1,15 @@
 import useTradeList from "../../Hooks/useTradeList";
 import TradeListElement from "./TradeListElement";
 import "./TradeList.css";
+import { useNavigate } from "react-router-dom";
 
 const TradeList = () => {
   const { savedTrades } = useTradeList();
+  const navigate = useNavigate();
+
+  const editTrade = (tradeId: string) => {
+    navigate(`/trade/${tradeId}/edit`);
+  };
 
   return (
     <div className="fullscreen-centered">
@@ -14,12 +20,20 @@ const TradeList = () => {
             className="search"
             placeholder="Search trades..."
           />
-          <button className="new-trade-button lato">New Trade</button>
+          <button
+            className="new-trade-button lato"
+            onClick={() => navigate(`/trade/create`)}
+          >
+            New Trade
+          </button>
         </div>
         <ul className="trade-list">
           {savedTrades.map((trade, index) => (
             <li key={index}>
-              <TradeListElement trade={trade} />
+              <TradeListElement
+                trade={trade}
+                editTrade={() => editTrade(trade.id!)}
+              />
             </li>
           ))}
         </ul>

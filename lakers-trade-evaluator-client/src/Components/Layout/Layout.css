@@ -5,10 +5,62 @@
   box-sizing: border-box;
   width: 100vw;
   padding: 1vh 10vw;
-  background-color: #5a2d86;
+  background-color: var(--purple);
 }
 
 .header-title {
   display: flex;
   align-items: center;
+}
+
+.dialogue-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.dialogue {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.dialogue-button-container {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.cancel-button,
+.confirm-button {
+  border: none;
+  border-radius: 0.25vw;
+  cursor: pointer;
+  padding: 8px 16px;
+}
+
+.cancel-button:hover,
+.confirm-button:hover {
+  transform: scale(1.05);
+}
+
+.cancel-button {
+  background-color: lightgray;
+}
+
+.confirm-button {
+  background-color: var(--purple);
+  color: white;
 }

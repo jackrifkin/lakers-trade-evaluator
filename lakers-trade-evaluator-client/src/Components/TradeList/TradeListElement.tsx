@@ -1,7 +1,8 @@
 import { useState } from "react";
 import type { DraftPick, Trade, TradeElement } from "../../types";
 import "./TradeList.css";
-import { FaRegTrashAlt, FaExchangeAlt } from "react-icons/fa";
+import { FaRegTrashAlt, FaExchangeAlt, FaPencilAlt } from "react-icons/fa";
+import Dialogue from "../Layout/Dialogue";
 
 const ROUND_SUFFIXES = ["st", "nd", "rd"];
 
@@ -40,22 +41,46 @@ const ExchangedTradeElements = ({
       style={{ backgroundColor: direction === "In" ? "#B1FFA9" : "#FFBABA" }}
     >
       <h4>{direction === "In" ? "Receive" : "Give"}:</h4>
-      {elements.map((t) => (
-        <DraftPickText pick={t} />
+      {elements.map((t, index) => (
+        <DraftPickText pick={t} key={index} />
       ))}
     </div>
   );
 };
 
-const TradeListElement = ({ trade }: { trade: Trade }) => {
+const TradeListElement = ({
+  trade,
+  editTrade,
+}: {
+  trade: Trade;
+  editTrade: () => void;
+}) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [dialogueActivated, setDialogueActivated] = useState<boolean>(false);
+
+  const handleDeleteTrade = (confirmedDelete: boolean) => {
+    try {
+      if (confirmedDelete) {
+        // TODO: delete trade from db
+        console.log("deleting trade" + trade.id);
+      }
+
+      setDialogueActivated(false);
+    } catch (error) {
+      console.error(`Error while deleting trade: ${error}`);
+    }
+  };
 
   return (
     <div className="trade-list-element-container lato">
       <div className="trade-title-container">
         <h2 className="trade-title">{trade.name}</h2>
         <div className="element-buttons-container">
-          <FaRegTrashAlt className="delete-icon" />
+          <FaPencilAlt className="edit-icon" onClick={editTrade} />
+          <FaRegTrashAlt
+            className="delete-icon"
+            onClick={() => setDialogueActivated(true)}
+          />
           <img
             style={
               isOpen
@@ -88,6 +113,13 @@ const TradeListElement = ({ trade }: { trade: Trade }) => {
             );
           })}
         </div>
+      )}
+
+      {dialogueActivated && (
+        <Dialogue
+          text="Are you sure you want to delete this trade?"
+          callback={handleDeleteTrade}
+        />
       )}
     </div>
   );

@@ -28,8 +28,10 @@
   border-radius: 0.5vw;
   padding: 0 16px;
   border: none;
+  margin: 0;
   margin-top: 8px;
   font-size: large;
+  max-width: none;
 }
 
 .new-trade-button {
@@ -49,7 +51,7 @@
   transform: scale(0.9);
 }
 
-ul {
+.trade-list {
   padding: 0;
   max-height: 75vh;
   overflow-y: scroll;
@@ -70,7 +72,7 @@ li {
 }
 
 .trade-list-element-container {
-  background-color: #555;
+  background-color: var(--dark-grey);
   padding: 4%;
   border-radius: 0.5vw;
   margin-bottom: 2vh;
@@ -79,6 +81,11 @@ li {
 .delete-icon {
   color: #fa4444;
   height: 24px;
+  cursor: pointer;
+}
+
+.edit-icon {
+  color: black;
   cursor: pointer;
 }
 
