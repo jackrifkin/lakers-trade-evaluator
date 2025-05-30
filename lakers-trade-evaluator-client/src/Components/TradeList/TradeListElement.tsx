@@ -4,6 +4,7 @@ import "./TradeList.css";
 import { FaRegTrashAlt, FaExchangeAlt, FaPencilAlt } from "react-icons/fa";
 import Dialogue from "../Layout/Dialogue";
 import { evaluateTrade, getTradeValueColor } from "../../Util/TradeEvalUtil";
+import { deleteTradeById } from "../../Services/tradeService";
 
 const ROUND_SUFFIXES = ["st", "nd", "rd"];
 
@@ -52,19 +53,21 @@ const ExchangedTradeElements = ({
 const TradeListElement = ({
   trade,
   editTrade,
+  removeTrade,
 }: {
   trade: Trade;
   editTrade: () => void;
+  removeTrade: (tid: string) => void;
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [dialogueActivated, setDialogueActivated] = useState<boolean>(false);
   const tradeEvalutations = evaluateTrade(trade);
 
-  const handleDeleteTrade = (confirmedDelete: boolean) => {
+  const handleDeleteTrade = async (confirmedDelete: boolean) => {
     try {
       if (confirmedDelete) {
-        // TODO: delete trade from db
-        console.log("deleting trade" + trade.id);
+        await deleteTradeById(trade.id!);
+        removeTrade(trade.id!);
       }
 
       setDialogueActivated(false);

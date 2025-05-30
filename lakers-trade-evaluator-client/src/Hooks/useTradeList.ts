@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Trade } from "../types";
-import { MOCK_SAVED_TRADE_DATA } from "../mock_data";
+import { getSavedTrades } from "../Services/tradeService";
 
 const useTradeList = () => {
   const [savedTrades, setSavedTrades] = useState<Trade[]>([]);
@@ -8,9 +8,8 @@ const useTradeList = () => {
   useEffect(() => {
     const fetchAllSavedTrades = async () => {
       try {
-        // TODO: fetch real data
-        // const response = await getSavedTrades();
-        setSavedTrades(MOCK_SAVED_TRADE_DATA);
+        const response = await getSavedTrades();
+        setSavedTrades(response);
       } catch (error) {
         console.error(error);
       }
@@ -19,7 +18,7 @@ const useTradeList = () => {
     fetchAllSavedTrades();
   }, []);
 
-  return { savedTrades };
+  return { savedTrades, setSavedTrades };
 };
 
 export default useTradeList;

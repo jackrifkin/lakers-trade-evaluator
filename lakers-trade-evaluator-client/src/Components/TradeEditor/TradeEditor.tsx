@@ -6,6 +6,9 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import Dialogue from "../Layout/Dialogue";
 import useTradeEditor from "../../Hooks/useTradeEditor";
 
+/**
+ * Component for the trade creation/editing form
+ */
 const TradeEditor = () => {
   const { tradeId } = useParams();
   const {

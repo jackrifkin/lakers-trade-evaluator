@@ -4,8 +4,12 @@ import "./TradeList.css";
 import { useNavigate } from "react-router-dom";
 
 const TradeList = () => {
-  const { savedTrades } = useTradeList();
+  const { savedTrades, setSavedTrades } = useTradeList();
   const navigate = useNavigate();
+
+  const removeTrade = (tid: string) => {
+    setSavedTrades((trades) => trades.filter((t) => t.id !== tid));
+  };
 
   const editTrade = (tradeId: string) => {
     navigate(`/trade/${tradeId}/edit`);
@@ -31,6 +35,7 @@ const TradeList = () => {
           {savedTrades.map((trade, index) => (
             <li key={index}>
               <TradeListElement
+                removeTrade={removeTrade}
                 trade={trade}
                 editTrade={() => editTrade(trade.id!)}
               />

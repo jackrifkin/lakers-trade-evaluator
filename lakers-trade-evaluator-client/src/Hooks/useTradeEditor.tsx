@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import type { DraftPick, Trade, TradeElement } from "../types";
 import { IoClose } from "react-icons/io5";
 import "./../Components/TradeEditor/TradeEditor.css";
-import { getTradeById } from "../Services/tradeService";
+import { getTradeById, saveTrade } from "../Services/tradeService";
 
 const emptyPick: DraftPick = {
   draftYear: new Date().getFullYear(),
@@ -95,8 +95,18 @@ const useTradeEditor = (tradeId?: string) => {
     }));
   };
 
-  const handleSaveTrade = () => {
-    console.log("saving trade...");
+  const handleSaveTrade = async () => {
+    try {
+      const response = await saveTrade(trade);
+      if (response) {
+        navigate("/");
+      } else {
+        // TODO: actual error handling
+        alert("Failed to save trade");
+      }
+    } catch (error) {
+      console.error(`Error while saving trade: ${error}`);
+    }
   };
 
   const renderDraftPickEditor = (
