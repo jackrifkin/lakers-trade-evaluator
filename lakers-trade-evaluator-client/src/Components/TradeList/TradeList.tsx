@@ -3,6 +3,9 @@ import TradeListElement from "./TradeListElement";
 import "./TradeList.css";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Component to render the list of saved trades from the db
+ */
 const TradeList = () => {
   const { savedTrades, setSavedTrades } = useTradeList();
   const navigate = useNavigate();

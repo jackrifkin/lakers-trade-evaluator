@@ -110,6 +110,9 @@ const getAveragePickValue = (pick: DraftPick): number => {
   return Math.round(value * 100) / 100;
 };
 
+/**
+ * Util function for evaluating the fairness of a trade involving draft picks
+ */
 export const evaluateTrade = (
   trade: Trade
 ): { [key: string]: { analysis: string; value: number } } => {
@@ -117,6 +120,7 @@ export const evaluateTrade = (
     [key: string]: { analysis: string; value: number };
   } = {};
 
+  // determines the value of each trade element (draft pick)
   for (const element of trade.elements) {
     const pick = element as DraftPick;
     const value = getAveragePickValue(pick);

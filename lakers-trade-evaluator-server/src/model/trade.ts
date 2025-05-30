@@ -1,6 +1,9 @@
 import mongoose, { Schema, Model } from "mongoose";
 import { TradeDocument } from "../types";
 
+/**
+ * Schema for a draft pick
+ */
 const draftPickSchema: Schema = new Schema(
   {
     draftYear: { type: Number, required: true },
@@ -14,6 +17,9 @@ const draftPickSchema: Schema = new Schema(
   { _id: false }
 );
 
+/**
+ * Schema for a trade element
+ */
 const tradeElementSchema: Schema = new Schema(
   {
     provider: { type: String, required: true },
@@ -26,6 +32,9 @@ const tradeElementSchema: Schema = new Schema(
   { _id: false }
 );
 
+/**
+ * schema for a trade
+ */
 const tradeSchema: Schema = new Schema(
   {
     name: { type: String, required: true },

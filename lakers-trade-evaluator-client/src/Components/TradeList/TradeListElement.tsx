@@ -50,6 +50,9 @@ const ExchangedTradeElements = ({
   );
 };
 
+/**
+ * Component to display a single saved trade from the db, and its evaluation
+ */
 const TradeListElement = ({
   trade,
   editTrade,

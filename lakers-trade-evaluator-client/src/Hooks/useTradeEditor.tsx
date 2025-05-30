@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 import type { DraftPick, Trade, TradeElement } from "../types";
 import { IoClose } from "react-icons/io5";
 import "./../Components/TradeEditor/TradeEditor.css";
-import { getTradeById, saveTrade } from "../Services/tradeService";
+import {
+  getTradeById,
+  saveTrade,
+  updateTradeById,
+} from "../Services/tradeService";
 
 const emptyPick: DraftPick = {
   draftYear: new Date().getFullYear(),
@@ -11,6 +15,9 @@ const emptyPick: DraftPick = {
   protected: false,
 };
 
+/**
+ * Custom hook for handling the logic of the TradeEditor component
+ */
 const useTradeEditor = (tradeId?: string) => {
   const [trade, setTrade] = useState<Trade>({
     name: "",
@@ -97,7 +104,12 @@ const useTradeEditor = (tradeId?: string) => {
 
   const handleSaveTrade = async () => {
     try {
-      const response = await saveTrade(trade);
+      let response = null;
+      if (trade.id) {
+        response = await updateTradeById(trade);
+      } else {
+        response = await saveTrade(trade);
+      }
       if (response) {
         navigate("/");
       } else {
