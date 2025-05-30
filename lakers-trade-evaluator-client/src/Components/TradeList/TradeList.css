@@ -1,10 +1,146 @@
+.fullscreen-centered {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 .trade-list-container {
-  max-width: 50vw;
+  margin: 5vh;
+  max-width: 800px;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 5vh;
+  box-sizing: border-box;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 3vh;
+}
+
+.search {
+  flex: 0.75;
+  height: 36px;
+  border-radius: 0.5vw;
+  padding: 0 16px;
+  border: none;
+  margin-top: 8px;
+  font-size: large;
+}
+
+.new-trade-button {
+  background-color: #afa;
+  border-radius: 0.5vw;
+  height: 5%;
+  width: fit-content;
+  padding: 8px 16px;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  color: #000;
+  cursor: pointer;
+}
+
+.new-trade-button:active {
+  transform: scale(0.9);
 }
 
 ul {
   padding: 0;
+  max-height: 75vh;
+  overflow-y: scroll;
 }
+
 li {
   list-style: none;
+}
+
+.trade-title {
+  margin: 0;
+}
+
+.trade-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trade-list-element-container {
+  background-color: #555;
+  padding: 4%;
+  border-radius: 0.5vw;
+  margin-bottom: 2vh;
+}
+
+.delete-icon {
+  color: #fa4444;
+  height: 24px;
+  cursor: pointer;
+}
+
+.expand-button {
+  cursor: pointer;
+}
+
+.element-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.trade-details-container {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  gap: 2vh;
+  margin-top: 2vh;
+}
+
+.trade-team-details-container {
+  background-color: #aaa;
+  border-radius: 0.5vw;
+  padding: 2vh;
+}
+
+.team-trade-details {
+  display: flex;
+  gap: 1vw;
+  margin-top: 1vh;
+}
+
+.team-trade-details > div {
+  flex: 1;
+  background-color: #fff;
+  padding: 1vh;
+  border-radius: 0.5vw;
+}
+
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+
+h4 {
+  margin-bottom: 0.5vh;
+}
+
+h5 {
+  margin: 0.5vh 1.5vh 0 1.5vh;
+}
+
+.alt-pick {
+  padding-left: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.alt-pick > p,
+.alt-pick > h5 {
+  margin: 0;
+  display: inline;
 }

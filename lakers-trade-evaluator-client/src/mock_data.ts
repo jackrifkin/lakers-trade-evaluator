@@ -2,6 +2,7 @@ import type { Trade } from "./types";
 
 const TRADE1: Trade = {
   name: "Lakers Pelicans",
+  teams: ["Lakers", "Pelicans"],
   elements: [
     {
       provider: "Lakers",
@@ -35,6 +36,7 @@ const TRADE1: Trade = {
 
 const TRADE2: Trade = {
   name: "Lakers Clippers Warriors Multi-Team",
+  teams: ["Lakers", "Clippers", "Warriors"],
   elements: [
     {
       provider: "Lakers",
