@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "start": "cd lakers-trade-evaluator-server && npm start",
-    "heroku-postbuild": "cd api && npm install && npm run build"
+    "heroku-postbuild": "cd lakers-trade-evaluator-server && npm install && npm run build"
   }
 }
