@@ -3,6 +3,7 @@ import type { DraftPick, Trade, TradeElement } from "../../types";
 import "./TradeList.css";
 import { FaRegTrashAlt, FaExchangeAlt, FaPencilAlt } from "react-icons/fa";
 import Dialogue from "../Layout/Dialogue";
+import { evaluateTrade, getTradeValueColor } from "../../Util/TradeEvalUtil";
 
 const ROUND_SUFFIXES = ["st", "nd", "rd"];
 
@@ -57,6 +58,7 @@ const TradeListElement = ({
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [dialogueActivated, setDialogueActivated] = useState<boolean>(false);
+  const tradeEvalutations = evaluateTrade(trade);
 
   const handleDeleteTrade = (confirmedDelete: boolean) => {
     try {
@@ -108,6 +110,16 @@ const TradeListElement = ({
                   <ExchangedTradeElements direction="Out" elements={outTrade} />
                   <FaExchangeAlt style={{ alignSelf: "center" }} />
                   <ExchangedTradeElements direction="In" elements={inTrade} />
+                </div>
+                <div
+                  className="evaluation-container"
+                  style={{
+                    backgroundColor: getTradeValueColor(
+                      tradeEvalutations[team].value
+                    ),
+                  }}
+                >
+                  {tradeEvalutations[team].analysis}
                 </div>
               </div>
             );

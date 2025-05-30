@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { DraftPick, Trade, TradeElement } from "../types";
 import { MOCK_SAVED_TRADE_DATA } from "../mock_data";
-import "./TradeView.css";
 import { IoClose } from "react-icons/io5";
+import "./../Components/TradeEditor/TradeEditor.css";
 
 const emptyPick: DraftPick = {
   draftYear: new Date().getFullYear(),

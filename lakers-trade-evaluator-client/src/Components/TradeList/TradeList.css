@@ -151,3 +151,10 @@ h5 {
   margin: 0;
   display: inline;
 }
+
+.evaluation-container {
+  background-color: red;
+  margin-top: 2vh;
+  border-radius: 0.5vw;
+  padding: 8px;
+}

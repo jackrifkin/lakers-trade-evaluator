@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import "./TradeView.css";
+import "./TradeEditor.css";
 import { IoClose } from "react-icons/io5";
 import { FaCheck, FaPlus } from "react-icons/fa";
 import { FaArrowLeftLong } from "react-icons/fa6";
